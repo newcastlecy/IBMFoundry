@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 SH_PATH=$(cd "$(dirname "$0")";pwd)
 cd ${SH_PATH}
 
@@ -26,7 +26,7 @@ EOF
 
 clone_repo(){
     echo "进行初始化。。。"
-    git clone https://github.com/CCChieh/IBMYes
+    git clone https://github.com/newcastlecy/IBMYes
     cd IBMYes
     git submodule update --init --recursive
     cd v2ray-cloudfoundry/v2ray
