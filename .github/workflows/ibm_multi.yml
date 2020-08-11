@@ -59,20 +59,20 @@ jobs:
         RESOURSE_ID_num=${#RESOURSE_ID_list[*]}
         
         if [ $IBM_ACCOUNT_num != $IBM_ACCOUNT_PWD_num ];then
-             echo "IBM_ACCOUNTºÍIBM_ACCOUNT_PWD¸öÊý²»¶ÔÓ¦"
+             echo "IBM_ACCOUNTå’ŒIBM_ACCOUNT_PWDä¸ªæ•°ä¸å¯¹åº”"
              exit 1
         fi
 
         if [ $IBM_ACCOUNT_num != $IBM_APP_NAME_num ];then
-             echo "IBM_ACCOUNTºÍIBM_APP_NAME¸öÊý²»¶ÔÓ¦"
+             echo "IBM_ACCOUNTå’ŒIBM_APP_NAMEä¸ªæ•°ä¸å¯¹åº”"
              exit 1
         fi
         
         if [ $IBM_ACCOUNT_num != $RESOURSE_ID_num ];then
-             echo "IBM_ACCOUNTºÍRESOURSE_ID¸öÊý²»¶ÔÓ¦"
+             echo "IBM_ACCOUNTå’ŒRESOURSE_IDä¸ªæ•°ä¸å¯¹åº”"
              exit 1
         else
-             echo "¹²ÓÐ $IBM_ACCOUNT_num ¸öÕËºÅ£¬¼´½«¿ªÊ¼ÖØÆô²Ù×÷"
+             echo "å…±æœ‰ $IBM_ACCOUNT_num ä¸ªè´¦å·ï¼Œå³å°†å¼€å§‹é‡å¯æ“ä½œ"
         fi        
 
         for ((i=0;i<$IBM_ACCOUNT_num;i++))
@@ -83,21 +83,18 @@ jobs:
         $REGION_NUM
         no
         EOF
-        echo "${IBM_ACCOUNT_list[$i]} µÇÂ½³É¹¦"
+        echo "${IBM_ACCOUNT_list[$i]} ç™»é™†æˆåŠŸ"
 
         ./IBM_Cloud_CLI/ibmcloud target -g "${RESOURSE_ID_list[$i]}"      	
         ./IBM_Cloud_CLI/ibmcloud target --cf      
-        ./IBM_Cloud_CLI/ibmcloud cf install  	
-        if [ $i != 0 ];then
-		        ./IBM_Cloud_CLI/ibmcloud cf install  <<EOF
-		        Y
-		        EOF
-        fi 
-        echo "${i} Êä³ö"
+        ./IBM_Cloud_CLI/ibmcloud cf install  <<EOF
+         Y
+        EOF
+        echo "${i} è¾“å‡º"
         
-        echo "${IBM_ACCOUNT_list[$i]} Target IBM Cloud ³É¹¦"
+        echo "${IBM_ACCOUNT_list[$i]} Target IBM Cloud æˆåŠŸ"
 
         ./IBM_Cloud_CLI/ibmcloud cf restart "${IBM_APP_NAME_list[$i]}"
-        echo "${IBM_ACCOUNT_list[$i]} Restart IBM Cloud ³É¹¦"
+        echo "${IBM_ACCOUNT_list[$i]} Restart IBM Cloud æˆåŠŸ"
         
         done
