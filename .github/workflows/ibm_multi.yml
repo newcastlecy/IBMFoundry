@@ -88,13 +88,8 @@ jobs:
         echo "${IBM_ACCOUNT_list[$i]} 登陆成功"
 
         ./IBM_Cloud_CLI/ibmcloud target -g "${RESOURSE_ID_list[$i]}"
-        ./IBM_Cloud_CLI/ibmcloud target --cf
-        ./IBM_Cloud_CLI/ibmcloud cf install        	
-        if [ $i != '0' ];then
-            Y
-            echo "${i} YYYY"
-        fi 
-        echo "${i} YYYYMM"
+        ./IBM_Cloud_CLI/ibmcloud target --cf 	
+
         echo "${IBM_ACCOUNT_list[$i]} Target IBM Cloud 成功"
 
         ./IBM_Cloud_CLI/ibmcloud cf restart "${IBM_APP_NAME_list[$i]}"
