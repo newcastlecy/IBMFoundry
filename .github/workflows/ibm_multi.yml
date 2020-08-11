@@ -89,9 +89,8 @@ jobs:
 
         ./IBM_Cloud_CLI/ibmcloud target -g "${RESOURSE_ID_list[$i]}"
         ./IBM_Cloud_CLI/ibmcloud target --cf
-        ./IBM_Cloud_CLI/ibmcloud cf install        	
-        if [ $i != 0 ];then
-            Y
+        if [ $i == 0 ];then
+            ./IBM_Cloud_CLI/ibmcloud cf install        	
         fi 
         echo "${IBM_ACCOUNT_list[$i]} Target IBM Cloud 成功"
 
