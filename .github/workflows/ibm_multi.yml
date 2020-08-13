@@ -97,3 +97,5 @@ jobs:
         
         done
         echo "共有 $IBM_ACCOUNT_num 个账号,全部重启执行完成"
+    - name: WeChat notification
+      run: curl https://sc.ftqq.com/${{ secrets.SCKEY }}.send?text=共有 $IBM_ACCOUNT_num 个账号重启IBM容器成功  
