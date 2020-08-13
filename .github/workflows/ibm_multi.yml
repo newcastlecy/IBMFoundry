@@ -9,7 +9,7 @@ on:
     - cron: '09 12 * * *'
 
 jobs:
-  ibm-cloud-restart:
+  ibm-cloud-restart-multi:
     runs-on: ubuntu-latest
 
     steps:
