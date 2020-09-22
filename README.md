@@ -41,7 +41,7 @@
 打开命令行，右上角选择相应的地区（Dallas），粘贴一键安装脚本：
 
 ```shell
-wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/newcastlecy/IBMYes/master/install.sh && chmod +x install.sh  && ./install.sh
+wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/newcastlecy/IBMFoundry/master/install.sh && chmod +x install.sh  && ./install.sh
 ```
 
 ![image-20200615210944753](img/README/image-20200615210944753.png)
@@ -129,7 +129,7 @@ ibmcloud resource groups
 现在返回github，到本项目
 
 ```
-https://github.com/CCChieh/IBMYes
+https://github.com/newcastlecy/IBMFoundry
 ```
 
 ![image-20200615184239713](img/README/image-20200615184239713.png)
