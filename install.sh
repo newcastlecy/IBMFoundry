@@ -16,7 +16,7 @@ create_mainfest_file(){
     WSPATH=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 16)
     echo "生成随机WebSocket路径：${WSPATH}"
     
-    cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/manifest.yml  << EOF
+    cat >  ${SH_PATH}/IBMFoundry/v2ray-cloudfoundry/manifest.yml  << EOF
     applications:
     - path: .
       name: ${IBM_APP_NAME}
@@ -24,7 +24,7 @@ create_mainfest_file(){
       memory: ${IBM_MEM_SIZE}M
 EOF
 
-    cat >  ${SH_PATH}/IBMYes/v2ray-cloudfoundry/v2ray/config.json  << EOF
+    cat >  ${SH_PATH}/IBMFoundry/v2ray-cloudfoundry/v2ray/config.json  << EOF
     {
         "inbounds": [
             {
@@ -59,8 +59,8 @@ EOF
 
 clone_repo(){
     echo "进行初始化。。。"
-    git clone https://github.com/newcastlecy/IBMYes
-    cd IBMYes
+    git clone https://github.com/newcastlecy/IBMFoundry
+    cd IBMFoundry
     git submodule update --init --recursive
     cd v2ray-cloudfoundry/v2ray
     # Upgrade V2Ray to the latest version
@@ -87,13 +87,13 @@ clone_repo(){
     rm latest-v2ray.zip
     
     chmod 0755 ./*
-    cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry
+    cd ${SH_PATH}/IBMFoundry/v2ray-cloudfoundry
     echo "初始化完成。"
 }
 
 install(){
     echo "进行安装。。。"
-    cd ${SH_PATH}/IBMYes/v2ray-cloudfoundry
+    cd ${SH_PATH}/IBMFoundry/v2ray-cloudfoundry
     ibmcloud target --cf
     ibmcloud cf install
     ibmcloud cf push
